@@ -1,0 +1,11 @@
+/Users/Adarsh/Documents/applozic-xamarin-binding/XamarinApplozicDemo/XamarinApplozicDemo/obj/iPhoneSimulator/Debug/Xamarin.iOS,Version=v1.0.AssemblyAttribute.cs
+/Users/Adarsh/Documents/applozic-xamarin-binding/XamarinApplozicDemo/XamarinApplozicDemo/obj/iPhoneSimulator/Debug/ibtool/_BundleResourceWithLogicalName.items
+/Users/Adarsh/Documents/applozic-xamarin-binding/XamarinApplozicDemo/XamarinApplozicDemo/obj/iPhoneSimulator/Debug/actool/_PartialAppManifest.items
+/Users/Adarsh/Documents/applozic-xamarin-binding/XamarinApplozicDemo/XamarinApplozicDemo/obj/iPhoneSimulator/Debug/actool/_BundleResourceWithLogicalName.items
+/Users/Adarsh/Documents/applozic-xamarin-binding/XamarinApplozicDemo/XamarinApplozicDemo/obj/iPhoneSimulator/Debug/optimized/
+/Users/Adarsh/Documents/applozic-xamarin-binding/XamarinApplozicDemo/XamarinApplozicDemo/bin/iPhoneSimulator/Debug/XamarinApplozicDemo.exe.mdb
+/Users/Adarsh/Documents/applozic-xamarin-binding/XamarinApplozicDemo/XamarinApplozicDemo/bin/iPhoneSimulator/Debug/XamarinApplozicDemo.exe
+/Users/Adarsh/Documents/applozic-xamarin-binding/XamarinApplozicDemo/XamarinApplozicDemo/obj/iPhoneSimulator/Debug/XamarinApplozicDemo.exe
+/Users/Adarsh/Documents/applozic-xamarin-binding/XamarinApplozicDemo/XamarinApplozicDemo/obj/iPhoneSimulator/Debug/XamarinApplozicDemo.exe.mdb
+/Users/Adarsh/Documents/applozic-xamarin-binding/XamarinApplozicDemo/XamarinApplozicDemo/bin/iPhoneSimulator/Debug/ApplozicXamarinWrapper.dll
+/Users/Adarsh/Documents/applozic-xamarin-binding/XamarinApplozicDemo/XamarinApplozicDemo/bin/iPhoneSimulator/Debug/ApplozicXamarinWrapper.dll.mdb

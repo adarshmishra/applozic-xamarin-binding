@@ -91,7 +91,6 @@ namespace ApplozicXamarinWrapper {
 		[Export ("handleCustomAction:andWithMessage:")]
 		[CompilerGenerated]
 		public static void AndWithMessage (global::UIKit.UIViewController chatView, ALMessage alMessage){
-			
 		}
 	} /* class ALChatLauncherDelegate */
 }
