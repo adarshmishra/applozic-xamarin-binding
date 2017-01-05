@@ -1,0 +1,5 @@
+/Users/Adarsh/Projects/ApplozicXamarinWrapper/ApplozicXamarinWrapper/obj/Debug/Xamarin.iOS,Version=v1.0.AssemblyAttribute.cs
+/Users/Adarsh/Projects/ApplozicXamarinWrapper/ApplozicXamarinWrapper/bin/Debug/ApplozicXamarinWrapper.dll.mdb
+/Users/Adarsh/Projects/ApplozicXamarinWrapper/ApplozicXamarinWrapper/bin/Debug/ApplozicXamarinWrapper.dll
+/Users/Adarsh/Projects/ApplozicXamarinWrapper/ApplozicXamarinWrapper/obj/Debug/ApplozicXamarinWrapper.dll
+/Users/Adarsh/Projects/ApplozicXamarinWrapper/ApplozicXamarinWrapper/obj/Debug/ApplozicXamarinWrapper.dll.mdb
