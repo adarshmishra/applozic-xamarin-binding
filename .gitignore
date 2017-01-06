@@ -1,5 +1,14 @@
 #build
-Oo]bj/
-[Bb]in/
+/ApplozicXamarinWrapper/ApplozicXamarinWrapper/obj/
+/ApplozicXamarinWrapper/ApplozicXamarinWrapper/bin/
+/XamarinApplozicDemo/XamarinApplozicDemo/obj/
+/XamarinApplozicDemo/XamarinApplozicDemo/bin/
+
 packages/
 TestResults/
+
+*.dll
+
+*.dll
+
+*.dylib

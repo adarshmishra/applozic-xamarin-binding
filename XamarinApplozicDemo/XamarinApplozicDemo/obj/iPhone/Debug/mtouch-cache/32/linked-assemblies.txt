@@ -1,5 +1,0 @@
-/Users/Adarsh/Documents/applozic-xamarin-binding/XamarinApplozicDemo/XamarinApplozicDemo/obj/iPhone/Debug/mtouch-cache/32/Link/Xamarin.iOS.dll
-/Users/Adarsh/Documents/applozic-xamarin-binding/XamarinApplozicDemo/XamarinApplozicDemo/obj/iPhone/Debug/mtouch-cache/32/Link/XamarinApplozicDemo.exe
-/Users/Adarsh/Documents/applozic-xamarin-binding/XamarinApplozicDemo/XamarinApplozicDemo/obj/iPhone/Debug/mtouch-cache/32/Link/System.dll
-/Users/Adarsh/Documents/applozic-xamarin-binding/XamarinApplozicDemo/XamarinApplozicDemo/obj/iPhone/Debug/mtouch-cache/32/Link/mscorlib.dll
-/Users/Adarsh/Documents/applozic-xamarin-binding/XamarinApplozicDemo/XamarinApplozicDemo/obj/iPhone/Debug/mtouch-cache/32/Link/ApplozicXamarinWrapper.dll

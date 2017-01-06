@@ -7,6 +7,8 @@ namespace XamarinApplozicDemo
 {
 	public class ALChatManager
 	{
+		static String application_id="applozic-sample-app";
+
 		public ALChatManager()
 		{
 		
@@ -22,7 +24,7 @@ namespace XamarinApplozicDemo
 			{
 				//User
 				ALUser user = new ALUser();
-				user.ApplicationId = "applozic-sample-app";
+				user.ApplicationId = application_id;
 				user.UserId = "ak01";
 				user.Password = "123";
 				ALUserDefaultsHandler.SetPassword("123");
@@ -45,15 +47,32 @@ namespace XamarinApplozicDemo
 			    Console.WriteLine("Launching chat directly without registration ");
 				ALChatLauncher alChatLauncher = new ALChatLauncher("applozic-sample-app");
 				alChatLauncher.LaunchChatList("< Back", fromViewController);
-
+				this.getChannelDetails();
 			}
 
 		}
 
+		public void getChannelDetails()
+		{
+			ALChannelService channelService = new ALChannelService();
+			channelService.GetChannelInformation(1564195, "1564195", (ALChannel channelObject) =>
+			{
+				Console.WriteLine("Launching chat directly without registration ");
+
+			});
+
+        }
+
+
+
+		/**
+		 *    Default custom colors and other applozic settings
+		 * 
+		 *    Documentaion link ...
+		 **/
 
 		public void ALDefaultChatSettings()
 		{
-
 
 			/*********************************************  NAVIGATION SETTINGS  ********************************************/
 
@@ -152,16 +171,17 @@ namespace XamarinApplozicDemo
 			ALApplozicSettings.SetVisibilityNoConversationLabelChatVC(true);            /*  SET NO CONVERSATION LABEL IN CHAT VC    */
 			ALApplozicSettings.SetBGColorForTypingLabel(UIColor.FromRGBA(242 / 255f, 242 / 255f, 242 / 255f, 1f)); /*  SET COLOR FOR TYPING LABEL  */
 			ALApplozicSettings.SetTextColorForTypingLabel(UIColor.FromRGBA(51 / 255f, 51 / 255f, 51 / 255f, 1 / 2f)); /*  SET COLOR FOR TEXT TYPING LABEL  */
-																													  /****************************************************************************************************************/
 
+			/****************************************************************************************************************/
 
 			/********************************************** CHAT TYPE SETTINGS  *********************************************/
 
-			ALApplozicSettings.SetContextualChat(true);                                 /*  IF CONTEXTUAL NEEDED    */
-																						/*  Note: Please uncomment below setter to use app_module_name */
-																						//   [ALUserDefaultsHandler setAppModuleName:@"<APP_MODULE_NAME>"];
-																						//   [ALUserDefaultsHandler setAppModuleName:@"SELLER"];
-																						/****************************************************************************************************************/
+			ALApplozicSettings.SetContextualChat(true);                           
+			/*  IF CONTEXTUAL NEEDED    */
+			/*  Note: Please uncomment below setter to use app_module_name */
+			//   [ALUserDefaultsHandler setAppModuleName:@"<APP_MODULE_NAME>"];
+			//   [ALUserDefaultsHandler setAppModuleName:@"SELLER"];
+            /****************************************************************************************************************/
 
 
 			/*********************************************** CONTACT SETTINGS  **********************************************/
@@ -178,8 +198,7 @@ namespace XamarinApplozicDemo
 			ALApplozicSettings.SetColorForToastText(UIColor.Black);         /*  SET COLOR FOR TOAST TEXT    */
 			ALApplozicSettings.SetColorForToastBackground(UIColor.Gray);    /*  SET COLOR FOR TOAST BG      */
 			ALApplozicSettings.SetCallOption(false);                                 /*  IF CALL OPTION NEEDED   */
-																					 /****************************************************************************************************************/
-
+	        /****************************************************************************************************************/
 
 			/********************************************* DEMAND/MISC SETTINGS  ********************************************/
 
@@ -194,13 +213,13 @@ namespace XamarinApplozicDemo
 			//ALApplozicSettings.SetChatWallpaperImageName:@"<WALLPAPER NAME>"];
 			/****************************************************************************************************************/
 
-
 			/***************************************** APPLICATION URL CONFIGURATION + ENCRYPTION  ***************************************/
 
 			//    [self getApplicationBaseURL];                                         /* Note: PLEASE DO NOT COMMENT THIS IF ARCHIVING/RELEASING  */
 
 			ALUserDefaultsHandler.SetEnableEncryption(false);                            /* Note: PLEASE DO YES (IF NEEDED)  */
-																		 /****************************************************************************************************************/
+          
+			/****************************************************************************************************************/
 			ALUserDefaultsHandler.SetGoogleMapAPIKey("AIzaSyBnWMTGs1uTFuf8fqQtsmLk-vsWM7OrIXk"); //REPLACE WITH YOUR GOOGLE MAPKEY
 
 		}
