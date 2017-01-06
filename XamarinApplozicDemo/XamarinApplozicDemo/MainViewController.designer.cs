@@ -11,12 +11,16 @@ using UIKit;
 
 namespace XamarinApplozicDemo
 {
-    [Register ("ViewController")]
-    partial class ViewController
+    [Register ("MainViewController")]
+    partial class MainViewController
     {
         [Action ("UIButton3_TouchUpInside:")]
         [GeneratedCode ("iOS Designer", "1.0")]
         partial void UIButton3_TouchUpInside (UIKit.UIButton sender);
+
+        [Action ("UIButton8_TouchUpInside:")]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        partial void UIButton8_TouchUpInside (UIKit.UIButton sender);
 
         void ReleaseDesignerOutlets ()
         {

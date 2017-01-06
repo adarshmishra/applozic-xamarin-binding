@@ -453,7 +453,7 @@ namespace ApplozicXamarinWrapper
 
 		// -(void)launchIndividualChat:(NSString *)userId withGroupId:(NSNumber *)groupID andViewControllerObject:(UIViewController *)viewController andWithText:(NSString *)text;
 		[Export("launchIndividualChat:withGroupId:andViewControllerObject:andWithText:")]
-		void LaunchIndividualChat(string userId, NSNumber groupID, UIViewController viewController, string text);
+		void LaunchIndividualChat([NullAllowed] string userId, [NullAllowed] NSNumber groupID, UIViewController viewController, [NullAllowed] string text);
 
 		// -(void)launchChatList:(NSString *)title andViewControllerObject:(UIViewController *)viewController;
 		[Export("launchChatList:andViewControllerObject:")]
@@ -469,15 +469,15 @@ namespace ApplozicXamarinWrapper
 
 		// -(void)launchIndividualChat:(NSString *)userId withGroupId:(NSNumber *)groupID withDisplayName:(NSString *)displayName andViewControllerObject:(UIViewController *)viewController andWithText:(NSString *)text;
 		[Export("launchIndividualChat:withGroupId:withDisplayName:andViewControllerObject:andWithText:")]
-		void LaunchIndividualChat(string userId, NSNumber groupID, string displayName, UIViewController viewController, string text);
+		void LaunchIndividualChat([NullAllowed] string userId, [NullAllowed] NSNumber groupID, [NullAllowed] string displayName, UIViewController viewController, string text);
 
 		// -(void)launchIndividualContextChat:(ALConversationProxy *)alConversationProxy andViewControllerObject:(UIViewController *)viewController userDisplayName:(NSString *)displayName andWithText:(NSString *)text;
 		[Export("launchIndividualContextChat:andViewControllerObject:userDisplayName:andWithText:")]
-		void LaunchIndividualContextChat(ALConversationProxy alConversationProxy, UIViewController viewController, string displayName, string text);
+		void LaunchIndividualContextChat(ALConversationProxy alConversationProxy, UIViewController viewController, [NullAllowed] string displayName, [NullAllowed] string text);
 
 		// -(void)launchChatListWithUserOrGroup:(NSString *)userId withChannel:(NSNumber *)channelKey andViewControllerObject:(UIViewController *)viewController;
 		[Export("launchChatListWithUserOrGroup:withChannel:andViewControllerObject:")]
-		void LaunchChatListWithUserOrGroup(string userId, NSNumber channelKey, UIViewController viewController);
+		void LaunchChatListWithUserOrGroup([NullAllowed] string userId, [NullAllowed] NSNumber channelKey, UIViewController viewController);
 
 		// -(void)launchChatListWithCustomNavigationBar:(UIViewController *)viewController;
 		[Export("launchChatListWithCustomNavigationBar:")]

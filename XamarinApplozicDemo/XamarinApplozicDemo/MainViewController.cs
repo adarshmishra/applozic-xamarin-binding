@@ -4,8 +4,13 @@ using UIKit;
 
 namespace XamarinApplozicDemo
 {
-	public partial class ViewController : UIViewController
+	public partial class MainViewController : UIViewController
 	{
+		partial void UIButton8_TouchUpInside(UIButton sender)
+		{
+			throw new NotImplementedException();
+		}
+
 		partial void UIButton3_TouchUpInside(UIButton sender)
 		{
 
@@ -14,7 +19,7 @@ namespace XamarinApplozicDemo
 		
 		}
 
-		protected ViewController(IntPtr handle) : base(handle)
+		protected MainViewController(IntPtr handle) : base(handle)
 		{
 			// Note: this .ctor should not contain any initialization logic.
 		}

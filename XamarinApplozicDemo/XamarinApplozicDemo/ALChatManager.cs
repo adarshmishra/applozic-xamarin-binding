@@ -7,7 +7,8 @@ namespace XamarinApplozicDemo
 {
 	public class ALChatManager
 	{
-		static String application_id="applozic-sample-app";
+		static public String application_id="applozic-sample-app";
+		ALChatLauncher ChatLauncher = new ALChatLauncher(application_id);
 
 		public ALChatManager()
 		{
@@ -20,37 +21,34 @@ namespace XamarinApplozicDemo
 			//UI Settings
 			ALDefaultChatSettings();
 
-			if (!ALUserDefaultsHandler.IsLoggedIn)
+			if (ALUserDefaultsHandler.IsLoggedIn)
 			{
-				//User
-				ALUser user = new ALUser();
-				user.ApplicationId = application_id;
-				user.UserId = "ak01";
-				user.Password = "123";
-				ALUserDefaultsHandler.SetPassword("123");
-				//User registration..
-				Console.WriteLine("Launching chat ::" + user.ApplicationId + "Password :: " + user.Password);
-
-				ALRegisterUserClientService userClientService = new ALRegisterUserClientService();
-				userClientService.InitWithCompletion(user, (ALRegistrationResponse arg1, NSError arg2) =>
-				{
-
-					Console.WriteLine("Launching chat ::" + user.ApplicationId + "Password :: " + user.Password);
-					ALChatLauncher alChatLauncher = new ALChatLauncher("applozic-sample-app");
-					alChatLauncher.LaunchChatList("< Back", fromViewController);
-
-				});
-				Console.WriteLine(" Launching :: " + user.ApplicationId + " Password :: " + user.Password);
+				ChatLauncher.LaunchChatList("<Back", fromViewController);
 			}
 			else
 			{
-			    Console.WriteLine("Launching chat directly without registration ");
-				ALChatLauncher alChatLauncher = new ALChatLauncher("applozic-sample-app");
-				alChatLauncher.LaunchChatList("< Back", fromViewController);
-				this.getChannelDetails();
+				new UIAlertView("Opps!!!", "You are not logged In.", null, "OK", null).Show();
+
 			}
 
 		}
+
+		//Launching chat for individual users.
+		public void launchChatForUser(String userId, UIViewController controller )
+		{
+			ChatLauncher.LaunchIndividualChat(userId, null, controller, "initialText");
+		}
+
+		//Launching Chat for individul chennel.
+		public void launchChatForChannel(NSNumber channelId, UIViewController controller)
+		{
+			ALChatLauncher alChatLauncher = new ALChatLauncher(application_id);
+			alChatLauncher.LaunchIndividualChat(null, channelId, controller, "initialText");
+		}
+
+		//launching chat with context base chat.
+
+
 
 		public void getChannelDetails()
 		{
