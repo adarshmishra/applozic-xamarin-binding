@@ -14,16 +14,68 @@ namespace XamarinApplozicDemo
     [Register ("MainViewController")]
     partial class MainViewController
     {
-        [Action ("UIButton3_TouchUpInside:")]
+        [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        partial void UIButton3_TouchUpInside (UIKit.UIButton sender);
+        UIKit.UIButton ChatListBtn { get; set; }
 
-        [Action ("UIButton8_TouchUpInside:")]
+        [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        partial void UIButton8_TouchUpInside (UIKit.UIButton sender);
+        UIKit.UIButton LaunchContextB { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton Logout { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton OneToOneChatBtn { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UITextView UreadCount { get; set; }
+
+        [Action ("ChatListBtn_TouchUpInside:")]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        partial void ChatListBtn_TouchUpInside (UIKit.UIButton sender);
+
+        [Action ("LaunchContextB_TouchUpInside:")]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        partial void LaunchContextB_TouchUpInside (UIKit.UIButton sender);
+
+        [Action ("Logout_TouchUpInside:")]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        partial void Logout_TouchUpInside (UIKit.UIButton sender);
+
+        [Action ("OneToOneChatBtn_TouchUpInside:")]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        partial void OneToOneChatBtn_TouchUpInside (UIKit.UIButton sender);
 
         void ReleaseDesignerOutlets ()
         {
+            if (ChatListBtn != null) {
+                ChatListBtn.Dispose ();
+                ChatListBtn = null;
+            }
+
+            if (LaunchContextB != null) {
+                LaunchContextB.Dispose ();
+                LaunchContextB = null;
+            }
+
+            if (Logout != null) {
+                Logout.Dispose ();
+                Logout = null;
+            }
+
+            if (OneToOneChatBtn != null) {
+                OneToOneChatBtn.Dispose ();
+                OneToOneChatBtn = null;
+            }
+
+            if (UreadCount != null) {
+                UreadCount.Dispose ();
+                UreadCount = null;
+            }
         }
     }
 }

@@ -7,16 +7,11 @@ namespace XamarinApplozicDemo
 {
 	public class ALChatManager
 	{
-		static public String application_id="applozic-sample-app";
-		ALChatLauncher ChatLauncher = new ALChatLauncher(application_id);
-
-		public ALChatManager()
-		{
-		
-		}
+		static public String application_id = "applozic-sample-app";
+		public static ALChatLauncher ChatLauncher = new ALChatLauncher(application_id);
 
 		//Right now dummy...
-		public void launchChatList( UIViewController fromViewController)
+		public static void launchChatList(UIViewController fromViewController)
 		{
 			//UI Settings
 			ALDefaultChatSettings();
@@ -34,20 +29,37 @@ namespace XamarinApplozicDemo
 		}
 
 		//Launching chat for individual users.
-		public void launchChatForUser(String userId, UIViewController controller )
+		public static void launchChatForUser(String userId, UIViewController controller)
 		{
 			ChatLauncher.LaunchIndividualChat(userId, null, controller, "initialText");
 		}
 
 		//Launching Chat for individul chennel.
-		public void launchChatForChannel(NSNumber channelId, UIViewController controller)
+		public static void launchChatForChannel(NSNumber channelId, UIViewController controller)
 		{
-			ALChatLauncher alChatLauncher = new ALChatLauncher(application_id);
-			alChatLauncher.LaunchIndividualChat(null, channelId, controller, "initialText");
+			ChatLauncher.LaunchIndividualChat(null, channelId, controller, "initialText");
+		}
+
+		public static void logout() 
+		{
+			new ALRegisterUserClientService().LogoutWithCompletionHandler(() => { 
+               
+			});
+		}
+
+		public static int GetUreadCount()
+		{
+			ALContactService contactService = new ALContactService();
+			return contactService.OverallUnreadCountForContact.Int32Value;
 		}
 
 		//launching chat with context base chat.
 
+		public static void launchContextBasedChat(NSNumber channelId, UIViewController controller)
+		{
+			ALChatLauncher alChatLauncher = new ALChatLauncher(application_id);
+			alChatLauncher.LaunchIndividualChat(null, channelId, controller, "initialText");
+		}
 
 
 		public void getChannelDetails()
@@ -59,7 +71,7 @@ namespace XamarinApplozicDemo
 
 			});
 
-        }
+		}
 
 
 
@@ -69,7 +81,7 @@ namespace XamarinApplozicDemo
 		 *    Documentaion link ...
 		 **/
 
-		public void ALDefaultChatSettings()
+		public static void ALDefaultChatSettings()
 		{
 
 			/*********************************************  NAVIGATION SETTINGS  ********************************************/
@@ -174,12 +186,12 @@ namespace XamarinApplozicDemo
 
 			/********************************************** CHAT TYPE SETTINGS  *********************************************/
 
-			ALApplozicSettings.SetContextualChat(true);                           
+			ALApplozicSettings.SetContextualChat(true);
 			/*  IF CONTEXTUAL NEEDED    */
 			/*  Note: Please uncomment below setter to use app_module_name */
 			//   [ALUserDefaultsHandler setAppModuleName:@"<APP_MODULE_NAME>"];
 			//   [ALUserDefaultsHandler setAppModuleName:@"SELLER"];
-            /****************************************************************************************************************/
+			/****************************************************************************************************************/
 
 
 			/*********************************************** CONTACT SETTINGS  **********************************************/
@@ -196,7 +208,7 @@ namespace XamarinApplozicDemo
 			ALApplozicSettings.SetColorForToastText(UIColor.Black);         /*  SET COLOR FOR TOAST TEXT    */
 			ALApplozicSettings.SetColorForToastBackground(UIColor.Gray);    /*  SET COLOR FOR TOAST BG      */
 			ALApplozicSettings.SetCallOption(false);                                 /*  IF CALL OPTION NEEDED   */
-	        /****************************************************************************************************************/
+																					 /****************************************************************************************************************/
 
 			/********************************************* DEMAND/MISC SETTINGS  ********************************************/
 
@@ -216,7 +228,7 @@ namespace XamarinApplozicDemo
 			//    [self getApplicationBaseURL];                                         /* Note: PLEASE DO NOT COMMENT THIS IF ARCHIVING/RELEASING  */
 
 			ALUserDefaultsHandler.SetEnableEncryption(false);                            /* Note: PLEASE DO YES (IF NEEDED)  */
-          
+
 			/****************************************************************************************************************/
 			ALUserDefaultsHandler.SetGoogleMapAPIKey("AIzaSyBnWMTGs1uTFuf8fqQtsmLk-vsWM7OrIXk"); //REPLACE WITH YOUR GOOGLE MAPKEY
 

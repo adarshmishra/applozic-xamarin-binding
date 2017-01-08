@@ -423,7 +423,7 @@ namespace ApplozicXamarinWrapper
 	interface ALChatLauncherDelegate
 	{
 		// @required +(void)handleCustomAction:(UIViewController *)chatView andWithMessage:(ALMessage *)alMessage;
-		[Static, Abstract]
+		[Static]
 		[Export("handleCustomAction:andWithMessage:")]
 		void AndWithMessage(UIViewController chatView, ALMessage alMessage);
 	}
