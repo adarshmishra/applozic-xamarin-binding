@@ -26,7 +26,11 @@ namespace XamarinApplozicDemo
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UITextField userIdTextField { get; set; }
 
-        [Action ("LoginButton_TouchUpInside:")]
+		[Outlet]
+		[GeneratedCode("iOS Designer", "1.0")]
+		UIKit.UITextView UreadCount { get; set; }
+
+		[Action ("LoginButton_TouchUpInside:")]
         [GeneratedCode ("iOS Designer", "1.0")]
         partial void LoginButton_TouchUpInside (UIKit.UIButton sender);
 
@@ -46,6 +50,12 @@ namespace XamarinApplozicDemo
                 userIdTextField.Dispose ();
                 userIdTextField = null;
             }
+
+			if (UreadCount != null)
+			{
+				UreadCount.Dispose();
+				UreadCount = null;
+			}
         }
     }
 }

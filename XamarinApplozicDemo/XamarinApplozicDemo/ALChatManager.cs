@@ -49,8 +49,8 @@ namespace XamarinApplozicDemo
 
 		public static int GetUreadCount()
 		{
-			ALContactService contactService = new ALContactService();
-			return contactService.OverallUnreadCountForContact.Int32Value;
+			ALUserService userService = new ALUserService();
+			return userService.TotalUnreadCount.Int32Value;
 		}
 
 		//launching chat with context base chat.

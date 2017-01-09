@@ -62,9 +62,11 @@ namespace XamarinApplozicDemo
 
 		//ADD THIS METHOD :
 
-		public void newMessageHandler()
+		public void NewMessageHandler( NSNotification obj )
 		{
 			int count = ALChatManager.GetUreadCount();
+			Console.WriteLine("Unread count is {0}",count);
+			this.UreadCount.Text = "Unread count : " + count;
 
 		}
 
@@ -85,14 +87,16 @@ namespace XamarinApplozicDemo
 		{
 			base.ViewWillAppear(animated);
 			NSNotificationCenter notification = NSNotificationCenter.DefaultCenter;
-			notification.AddObserver(this, new Selector("newMessageHandler"),
-			                         (NSString) "newMessageNotification",null);
-
+			//notification.AddObserver(this, new Selector("newMessageHandler"),
+			//                         (NSString) "newMessageNotification",null);
+			this.UreadCount.Text = "Unread count : " + ALChatManager.GetUreadCount();
+			notification.AddObserver((NSString) "newMessageNotification",NewMessageHandler);
 		}
 
 		public override void ViewWillDisappear(bool animated)
 		{
 			base.ViewWillDisappear(animated);
+
 		}
 
 
