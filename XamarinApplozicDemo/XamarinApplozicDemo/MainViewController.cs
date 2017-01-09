@@ -1,7 +1,8 @@
 ﻿using System;
+using Newtonsoft.Json; 
 using Foundation;
 using UIKit;
-using ObjCRuntime;
+using ApplozicXamarinWrapper;
 
 namespace XamarinApplozicDemo
 {
@@ -50,7 +51,7 @@ namespace XamarinApplozicDemo
 
 		partial void LaunchContextB_TouchUpInside(UIButton sender)
 		{
-			Console.WriteLine(" LaunchContextB_TouchUpInside clicked ..not yet implemented ");
+			ALChatManager.launchContextBasedChat(createConversation(), this);
 		}
 
 		partial void Logout_TouchUpInside(UIButton sender)
@@ -69,6 +70,7 @@ namespace XamarinApplozicDemo
 			this.UreadCount.Text = "Unread count : " + count;
 
 		}
+
 
 
 
@@ -91,6 +93,42 @@ namespace XamarinApplozicDemo
 			//                         (NSString) "newMessageNotification",null);
 			this.UreadCount.Text = "Unread count : " + ALChatManager.GetUreadCount();
 			notification.AddObserver((NSString) "newMessageNotification",NewMessageHandler);
+		}
+
+		public ALConversationProxy createConversation()
+		{
+
+			ALConversationProxy alConversationProxy = new ALConversationProxy();
+			alConversationProxy.TopicId = @"laptop01";
+			alConversationProxy.UserId = @"adarshk";
+
+			// Note : Uncomment following two lines to set SMS fallback's format.
+			/*
+				[alConversationProxy setSenderSMSFormat:@"SENDER SMS FORMAT"];
+				[alConversationProxy setReceiverSMSFormat:@"RECEIVER SMS FORMAT"];
+			*/
+
+			ALTopicDetail ALTopicDetail = new ALTopicDetail();
+			ALTopicDetail.Title = @"Mac Book Pro";
+			ALTopicDetail.Subtitle = @"13' Retina";
+			ALTopicDetail.Link = @"https://raw.githubusercontent.com/AppLozic/Applozic-iOS-SDK/master/macbookpro.jpg";
+			ALTopicDetail.Key1 = @"Product ID";
+			ALTopicDetail.Value1 = @"mac-pro-r-13";
+			ALTopicDetail.Key2 = @"Price";
+			ALTopicDetail.Value2 = @"Rs.1,04,999.00";
+			NSDictionary dict = ALTopicDetail.Dictionary;
+			NSError error = null;
+			NSData TopicData = NSJsonSerialization.Serialize(dict, 0 ,out error);
+
+			string resultTopicDetails =  new NSString( TopicData, NSStringEncoding.UTF8);
+
+			Console.WriteLine("ALTopicDetail ### {0} ", resultTopicDetails);
+
+			alConversationProxy.TopicDetailJson = resultTopicDetails;
+
+			return alConversationProxy;
+
+
 		}
 
 		public override void ViewWillDisappear(bool animated)

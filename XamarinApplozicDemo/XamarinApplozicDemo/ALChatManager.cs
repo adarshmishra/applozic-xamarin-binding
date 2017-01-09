@@ -5,6 +5,11 @@ using Foundation;
 
 namespace XamarinApplozicDemo
 {
+	/**
+	 * 
+	 * Helper class for launching chat.
+	 * 
+	 * */
 	public class ALChatManager
 	{
 		static public String application_id = "applozic-sample-app";
@@ -31,12 +36,14 @@ namespace XamarinApplozicDemo
 		//Launching chat for individual users.
 		public static void launchChatForUser(String userId, UIViewController controller)
 		{
+			ALDefaultChatSettings();
 			ChatLauncher.LaunchIndividualChat(userId, null, controller, "initialText");
 		}
 
 		//Launching Chat for individul chennel.
 		public static void launchChatForChannel(NSNumber channelId, UIViewController controller)
 		{
+			ALDefaultChatSettings();
 			ChatLauncher.LaunchIndividualChat(null, channelId, controller, "initialText");
 		}
 
@@ -55,10 +62,32 @@ namespace XamarinApplozicDemo
 
 		//launching chat with context base chat.
 
-		public static void launchContextBasedChat(NSNumber channelId, UIViewController controller)
+		public static void launchContextBasedChat(ALConversationProxy ConversationProxy, UIViewController controller)
 		{
-			ALChatLauncher alChatLauncher = new ALChatLauncher(application_id);
-			alChatLauncher.LaunchIndividualChat(null, channelId, controller, "initialText");
+			ALDefaultChatSettings();
+			ALConversationService alconversationService = new ALConversationService();
+
+			alconversationService.CreateConversation(ConversationProxy, (Error, ConversationProxyFromServer) =>
+			{
+				if (Error != null)
+				{
+					Console.WriteLine(" Error launching Conversation ::{0}" ,Error.Description);
+				}
+				else
+				{
+					//SET Values From server...
+					ConversationProxy.Id = ConversationProxyFromServer.Id;
+					if (ConversationProxyFromServer.GroupId != null)
+					{
+						ConversationProxy.GroupId = ConversationProxyFromServer.GroupId;
+					}
+
+					ChatLauncher.LaunchIndividualContextChat(ConversationProxy, controller,null, "");
+
+				}
+
+
+			});
 		}
 
 
@@ -72,7 +101,6 @@ namespace XamarinApplozicDemo
 			});
 
 		}
-
 
 
 		/**
