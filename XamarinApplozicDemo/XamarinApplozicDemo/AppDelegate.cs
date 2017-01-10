@@ -23,6 +23,19 @@ namespace XamarinApplozicDemo
 			// Override point for customization after application launch.
 			// If not required for your application you can safely delete this method
 
+
+			if (ALUserDefaultsHandler.IsLoggedIn)
+			{
+
+				ALPushNotificationService.UserSync();
+        		// Get login screen from storyboard and present it
+      			UIStoryboard Storyboard = UIStoryboard.FromName("Main", null);
+				MainViewController MainViewController = Storyboard.InstantiateViewController("MainViewController") as MainViewController;
+				this.Window.MakeKeyAndVisible();
+				this.Window.RootViewController.PresentViewController(MainViewController, true, () => { });
+
+			}
+
 			ALAppLocalNotifications localNotification = ALAppLocalNotifications.AppLocalNotificationHandler;
 			localNotification.DataConnectionNotificationHandler();
 
