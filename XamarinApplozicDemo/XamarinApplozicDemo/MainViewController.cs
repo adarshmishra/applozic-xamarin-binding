@@ -11,7 +11,7 @@ namespace XamarinApplozicDemo
 		
 		partial void OneToOneChatBtn_TouchUpInside(UIButton sender)
 		{
-			UIAlertController alert = UIAlertController.Create("Launcht Chat", "Enter userId", UIAlertControllerStyle.Alert);
+			UIAlertController alert = UIAlertController.Create("Applozic Demo!!!", "Enter userId of receiver", UIAlertControllerStyle.Alert);
 			alert.AddAction(UIAlertAction.Create("Ok", UIAlertActionStyle.Default, action =>
 			{
 				// This code is invoked when the user taps on login, and this shows how to access the field values

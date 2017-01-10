@@ -1,19 +1,20 @@
 ﻿<Properties StartupConfiguration="{A279E1E6-C168-4A05-9A1A-9875B0176D15}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="XamarinApplozicDemo/Main.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="XamarinApplozicDemo/AppDelegate.cs">
     <Files>
-      <File FileName="XamarinApplozicDemo/LoginViewController.designer.cs" Line="57" Column="23" />
-      <File FileName="XamarinApplozicDemo/MainViewController.cs" Line="54" Column="35" />
-      <File FileName="XamarinApplozicDemo/ALChatManager.cs" Line="67" Column="28" />
-      <File FileName="XamarinApplozicDemo/MainViewController.designer.cs" Line="14" Column="35" />
-      <File FileName="../ApplozicXamarinWrapper/ApplozicXamarinWrapper/ApiDefinition.cs" Line="476" Column="8" />
-      <File FileName="XamarinApplozicDemo/LoginViewController.cs" Line="34" Column="12" />
+      <File FileName="XamarinApplozicDemo/LoginViewController.designer.cs" Line="31" Column="22" />
+      <File FileName="XamarinApplozicDemo/MainViewController.cs" Line="14" Column="79" />
+      <File FileName="XamarinApplozicDemo/ALChatManager.cs" Line="52" Column="35" />
+      <File FileName="XamarinApplozicDemo/LoginViewController.cs" Line="32" Column="21" />
       <File FileName="XamarinApplozicDemo/Main.cs" Line="12" Column="1" />
+      <File FileName="XamarinApplozicDemo/Info.plist" />
+      <File FileName="../ApplozicXamarinWrapper/ApplozicXamarinWrapper/ApiDefinition.cs" Line="456" Column="8" />
+      <File FileName="XamarinApplozicDemo/AppDelegate.cs" Line="81" Column="35" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.XamarinApplozicDemo PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.A9D62E22-92CD-45EA-939F-B7A385216B05" />
+  <MonoDevelop.Ide.ItemProperties.XamarinApplozicDemo PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget" />
 </Properties>

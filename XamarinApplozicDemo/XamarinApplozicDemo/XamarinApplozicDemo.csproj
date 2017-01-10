@@ -70,7 +70,7 @@
     <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignKey>iPhone Developer: Adarsh Kumar (RN66F37TC5)</CodesignKey>
     <DeviceSpecificBuild>true</DeviceSpecificBuild>
     <MtouchDebug>true</MtouchDebug>
     <MtouchFastDev>true</MtouchFastDev>
@@ -84,6 +84,7 @@
     <MtouchTlsProvider>Default</MtouchTlsProvider>
     <PlatformTarget>x86</PlatformTarget>
     <MtouchSdkVersion></MtouchSdkVersion>
+    <CodesignProvision>179d9a89-681b-45ca-afb7-2ca89cad052b</CodesignProvision>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />

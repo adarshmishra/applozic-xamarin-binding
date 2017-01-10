@@ -37,14 +37,14 @@ namespace XamarinApplozicDemo
 		public static void launchChatForUser(String userId, UIViewController controller)
 		{
 			ALDefaultChatSettings();
-			ChatLauncher.LaunchIndividualChat(userId, null, controller, "initialText");
+			ChatLauncher.LaunchIndividualChat(userId, null, controller, null);
 		}
 
 		//Launching Chat for individul chennel.
 		public static void launchChatForChannel(NSNumber channelId, UIViewController controller)
 		{
 			ALDefaultChatSettings();
-			ChatLauncher.LaunchIndividualChat(null, channelId, controller, "initialText");
+			ChatLauncher.LaunchIndividualChat(null, channelId, controller, null);
 		}
 
 		public static void logout() 
@@ -112,6 +112,11 @@ namespace XamarinApplozicDemo
 		public static void ALDefaultChatSettings()
 		{
 
+			/********************** Group Settings *********************************************************/
+
+			ALApplozicSettings.SetGroupExitOption(true);
+			ALApplozicSettings.SetGroupMemberRemoveOption(true);
+
 			/*********************************************  NAVIGATION SETTINGS  ********************************************/
 
 			ALApplozicSettings.SetStatusBarBGColor(UIColor.FromRGBA(66 / 255f, 173 / 255f, 247 / 255f, 1f));
@@ -157,16 +162,11 @@ namespace XamarinApplozicDemo
 			//****************** SHOW/HIDE RECEIVER USER PROFILE ******************/
 			ALApplozicSettings.SetReceiverUserProfileOption(true);
 
-			/****************************************************************************************************************/
-
-
 			/**********************************************  IMAGE SETTINGS  ************************************************/
 
 			ALApplozicSettings.SetMaxCompressionFactor(0.1f);
 			ALApplozicSettings.SetMaxImageSizeForUploadInMB(3);
 			ALApplozicSettings.SetMultipleAttachmentMaxLimit(5);
-			/****************************************************************************************************************/
-
 
 			/**********************************************  GROUP SETTINGS  ************************************************/
 
@@ -180,9 +180,6 @@ namespace XamarinApplozicDemo
 			ALApplozicSettings.SetGroupMemberRemoveOption(true);
 
 
-			/****************************************************************************************************************/
-
-
 			/******************************************** NOTIIFCATION SETTINGS  ********************************************/
 
 			ALUserDefaultsHandler.SetDeviceApnsType(0);
@@ -193,7 +190,6 @@ namespace XamarinApplozicDemo
 			//****// [ALApplozicSettings setNotificationTitle:appName];
 
 			ALApplozicSettings.EnableNotification();                   /*  IF NOTIFICATION SOUND NEEDED    */
-																	   /****************************************************************************************************************/
 
 
 			/********************************************* CHAT VIEW SETTINGS  **********************************************/
@@ -210,7 +206,6 @@ namespace XamarinApplozicDemo
 			ALApplozicSettings.SetBGColorForTypingLabel(UIColor.FromRGBA(242 / 255f, 242 / 255f, 242 / 255f, 1f)); /*  SET COLOR FOR TYPING LABEL  */
 			ALApplozicSettings.SetTextColorForTypingLabel(UIColor.FromRGBA(51 / 255f, 51 / 255f, 51 / 255f, 1 / 2f)); /*  SET COLOR FOR TEXT TYPING LABEL  */
 
-			/****************************************************************************************************************/
 
 			/********************************************** CHAT TYPE SETTINGS  *********************************************/
 
@@ -219,8 +214,6 @@ namespace XamarinApplozicDemo
 			/*  Note: Please uncomment below setter to use app_module_name */
 			//   [ALUserDefaultsHandler setAppModuleName:@"<APP_MODULE_NAME>"];
 			//   [ALUserDefaultsHandler setAppModuleName:@"SELLER"];
-			/****************************************************************************************************************/
-
 
 			/*********************************************** CONTACT SETTINGS  **********************************************/
 
@@ -249,7 +242,6 @@ namespace XamarinApplozicDemo
 			ALApplozicSettings.SetUserProfileHidden(false);
 			ALApplozicSettings.SetFontFace("Helvetica");
 			//ALApplozicSettings.SetChatWallpaperImageName:@"<WALLPAPER NAME>"];
-			/****************************************************************************************************************/
 
 			/***************************************** APPLICATION URL CONFIGURATION + ENCRYPTION  ***************************************/
 
@@ -257,9 +249,29 @@ namespace XamarinApplozicDemo
 
 			ALUserDefaultsHandler.SetEnableEncryption(false);                            /* Note: PLEASE DO YES (IF NEEDED)  */
 
-			/****************************************************************************************************************/
+			/*********************************************GOOLE API SETTINGS*******************************************************************/
 			ALUserDefaultsHandler.SetGoogleMapAPIKey("AIzaSyBnWMTGs1uTFuf8fqQtsmLk-vsWM7OrIXk"); //REPLACE WITH YOUR GOOGLE MAPKEY
 
 		}
+
+		//APNS registartion...
+		public static void registerNotification()
+		{
+
+			if (UIDevice.CurrentDevice.CheckSystemVersion(8, 0))
+			{
+				var pushSettings = UIUserNotificationSettings.GetSettingsForTypes(
+								   UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound,
+								   new NSSet());
+
+				UIApplication.SharedApplication.RegisterUserNotificationSettings(pushSettings);
+				UIApplication.SharedApplication.RegisterForRemoteNotifications();
+			}
+			else {
+				UIRemoteNotificationType notificationTypes = UIRemoteNotificationType.Alert | UIRemoteNotificationType.Badge | UIRemoteNotificationType.Sound;
+				UIApplication.SharedApplication.RegisterForRemoteNotificationTypes(notificationTypes);
+			}
+		}
+
 	}
 }
